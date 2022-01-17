@@ -43,6 +43,11 @@
         <td th:text="${student.surname}"></td>
         <td th:text="${student.phone}"></td>
         <td th:text="${student.email}"></td>
+        <td>
+            <form action="#" th:action="@{/student/delete/} + ${student.id}" method="get">
+                <input type="submit" value="Delete" class="btn btn-danger m-1"/>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All marks table</title>
+    <!--/*/ <th:block th:include="index.html :: headerfiles">
+            </th:block> /*/-->
+</head>
+<body class="container">
+
+<nav th:replace="index.html :: navigation"></nav>
+
+<form action="/mark/add" method="post" class="row">
+    <label for="studentId" class="col-md-auto m-1">Student id</label>
+    <input class="col-md-auto m-1" type="text" id="studentId" name="studentId"/>
+
+    <label for="title" class="col-md-auto m-1">Title</label>
+    <input class="col-md-auto m-1" type="text" id="title" name="title"/>
+
+    <label for="mark" class="col-md-auto  m-1">Mark</label>
+    <input class="col-md-auto  m-1" type="text" id="mark" name="mark"/>
+
+    <input type="submit" value="Submit" class="btn btn-primary col-md-auto m-1">
+</form>
+
+<table class="table">
+    <thead>
+    <tr>
+        <td>id</td>
+        <td>Student id</td>
+        <td>title</td>
+        <td>mark</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="mark : ${data}">
+        <td th:text="${mark.id}"></td>
+        <td th:text="${mark.student_id}"></td>
+        <td th:text="${mark.title}"></td>
+        <td th:text="${mark.mark}"></td>
+        <td>
+            <form action="#" th:action="@{/mark/delete/} + ${mark.id}" method="get">
+                <input type="submit" value="Delete" class="btn btn-danger m-1"/>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

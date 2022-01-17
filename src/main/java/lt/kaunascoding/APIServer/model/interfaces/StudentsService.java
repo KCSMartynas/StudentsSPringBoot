@@ -13,4 +13,6 @@ public interface StudentsService {
     ArrayList<StudentVO> getAllStudents();
 
     void addStudent(String name, String surname, String phone, String email);
+
+    void deleteStudentById(Integer studentId);
 }

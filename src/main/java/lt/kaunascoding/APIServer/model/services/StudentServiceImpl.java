@@ -30,4 +30,9 @@ public class StudentServiceImpl implements StudentsService {
     public void addStudent(String name, String surname, String phone, String email) {
         this.studentsMapper.addStudent(name,surname, phone, email);
     }
+
+    @Override
+    public void deleteStudentById(Integer studentId) {
+        this.studentsMapper.deleteStudentById(studentId);
+    }
 }

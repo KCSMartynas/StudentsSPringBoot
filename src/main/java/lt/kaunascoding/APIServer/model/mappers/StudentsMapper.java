@@ -1,6 +1,7 @@
 package lt.kaunascoding.APIServer.model.mappers;
 
 import lt.kaunascoding.APIServer.model.vo.StudentVO;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -19,4 +20,7 @@ public interface StudentsMapper {
                     @Param("surname") String surname,
                     @Param("phone") String phone,
                     @Param("email") String email);
+
+    @Delete("DELETE FROM `students` WHERE `id` = #{studentId}")
+    void deleteStudentById(@Param("studentId") Integer studentId);
 }
