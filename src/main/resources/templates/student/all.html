@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All students table</title>
+    <!--/*/ <th:block th:include="index.html :: headerfiles">
+            </th:block> /*/-->
+</head>
+<body class="container">
+
+<nav th:replace="index.html :: navigation"></nav>
+
+<form action="/student/add" method="post" class="row">
+    <label for="name" class="col-md-auto m-1">Name</label>
+    <input class="col-md-auto m-1" type="text" id="name" name="name"/>
+
+    <label for="surname" class="col-md-auto m-1">Surname</label>
+    <input class="col-md-auto m-1" type="text" id="surname" name="surname"/>
+
+    <label for="phone" class="col-md-auto  m-1">Phone</label>
+    <input class="col-md-auto  m-1" type="text" id="phone" name="phone"/>
+
+    <label for="email" class="col-md-auto m-1">Email</label>
+    <input class="col-md-auto  m-1" type="text" id="email" name="email"/>
+
+    <input type="submit" value="Submit" class="btn btn-primary col-md-auto m-1">
+</form>
+
+<table class="table">
+    <thead>
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>surname</td>
+        <td>phone</td>
+        <td>email</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${data}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.surname}"></td>
+        <td th:text="${student.phone}"></td>
+        <td th:text="${student.email}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
