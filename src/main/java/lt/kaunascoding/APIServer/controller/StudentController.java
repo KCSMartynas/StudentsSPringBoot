@@ -29,7 +29,7 @@ public class StudentController {
            @RequestParam("email") String email,
             Model model
     ) {
-
+        this.studentsService.addStudent(name, surname, phone, email);
 
 
         model.addAttribute("data", this.studentsService.getAllStudents());

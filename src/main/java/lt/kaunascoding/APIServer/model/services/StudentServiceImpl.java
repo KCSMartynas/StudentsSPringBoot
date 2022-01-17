@@ -25,4 +25,9 @@ public class StudentServiceImpl implements StudentsService {
     public ArrayList<StudentVO> getAllStudents() {
         return this.studentsMapper.getAllStudents();
     }
+
+    @Override
+    public void addStudent(String name, String surname, String phone, String email) {
+        this.studentsMapper.addStudent(name,surname, phone, email);
+    }
 }

@@ -11,4 +11,6 @@ public interface StudentsService {
     StudentVO getStudentById (String id);
 
     ArrayList<StudentVO> getAllStudents();
+
+    void addStudent(String name, String surname, String phone, String email);
 }
